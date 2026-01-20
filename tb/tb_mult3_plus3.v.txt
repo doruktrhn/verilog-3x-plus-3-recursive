@@ -1,0 +1,24 @@
+module tb_mult3_plus3;
+
+    reg  [7:0] X;
+    wire [9:0] Y;
+
+    mult3_plus3 dut (
+        .X(X),
+        .Y(Y)
+    );
+
+    initial begin
+        $dumpfile("wave.vcd");
+        $dumpvars(0, tb_mult3_plus3);
+
+        X = 0;
+        repeat (10) begin
+            #10; 
+            X = X + 1;
+        end
+
+        #10;
+        $finish;
+    end
+endmodule
